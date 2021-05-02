@@ -1,0 +1,23 @@
+{
+  "name": "tic-tac-toe-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Davidcwh/Tic-Tac-Toe-AI-Engine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Davidcwh/Tic-Tac-Toe-AI-Engine/issues"
+  },
+  "homepage": "https://github.com/Davidcwh/Tic-Tac-Toe-AI-Engine#readme",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
