@@ -112,7 +112,7 @@ export default class TicTacToeEngine {
             return GameStatus.WIN_ON_LEFT_DIAGONAL;
         }
 
-        if(this.isWinninRightDiagonal(x, y)) {
+        if(this.isWinningRightDiagonal(x, y)) {
             return GameStatus.WIN_ON_RIGHT_DIAGONAL;
         }
 
@@ -163,7 +163,7 @@ export default class TicTacToeEngine {
         return false;
     }
 
-    private isWinninRightDiagonal(x: number, y: number) {
+    private isWinningRightDiagonal(x: number, y: number) {
         const playerCell = this.currentPlayer == Player.PLAYER_ONE ? Cell.PLAYER_ONE_TAKEN : Cell.PLAYER_TWO_TAKEN;
 
         // check if current move is in right diagonal
