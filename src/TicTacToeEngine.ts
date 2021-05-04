@@ -1,4 +1,4 @@
-import {BoardFullException, CellTakenException} from "./GridException";
+import {BoardFullException, CellTakenException} from "./EngineException";
 
 export enum Player {
     PLAYER_ONE = 1,
