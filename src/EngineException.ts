@@ -9,3 +9,9 @@ export class CellTakenException extends Error {
         super(message);
     }
 }
+
+export class TerminatedGameException extends Error {
+    constructor(message: string) {
+        super(message);
+    }
+}
