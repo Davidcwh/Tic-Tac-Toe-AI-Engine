@@ -1,4 +1,4 @@
-import {BoardFullException, CellTakenException} from "./EngineException";
+import {BoardFullException, CellTakenException, TerminatedGameException} from "./EngineException";
 
 export enum Player {
     PLAYER_ONE = 1,
@@ -23,9 +23,11 @@ export default class TicTacToeEngine {
     private currentPlayer: Player;
     private boardLength = 3;
     private board = new Array<Array<Cell>>(this.boardLength);
+    private isTerminated: boolean;
 
     constructor(firstPlayer: Player = Player.PLAYER_ONE) {
         this.currentPlayer = firstPlayer;
+        this.isTerminated = false;
 
         // Populating the initial state of the game board
         for(let y = 0; y < this.boardLength; y++) {
@@ -42,12 +44,12 @@ export default class TicTacToeEngine {
      * @param {Number} x The row index of the cell chosen by current player
      * @param {Number} y The column index of the cell chosen by current player
      * @returns {GameStatus} The resultant game status of the move made.
-     * @throws {BoardFullException} Exception thrown when board is already full, means game was completed prior to current move
+     * @throws {TerminatedGameException} Exception thrown when the game was completed prior to current move
      * @throws {CellTakenException} Exception thrown when current move is invalid, cell chosen was already taken prior to current move
      */
     makeNextMove(x: number, y: number) {
-        if(this.isBoardFull()) {
-            throw new BoardFullException(`Player ${this.currentPlayer} Unable to make move at cell (y=${y}, x=${x}) - board is already full`);
+        if(this.isTerminated) {
+            throw new TerminatedGameException(`Player ${this.currentPlayer} Unable to make move at cell (y=${y}, x=${x}) - Game is already terminated`);
         }
 
         if(this.board[y][x] != Cell.EMPTY) {
@@ -55,7 +57,12 @@ export default class TicTacToeEngine {
         }
         
         this.board[y][x] = this.currentPlayer == Player.PLAYER_ONE ? Cell.PLAYER_ONE_TAKEN : Cell.PLAYER_TWO_TAKEN;
+        
         const gameStatus = this.getGameStatusAfterMove(x, y);
+        if(gameStatus != GameStatus.ONGOING) { // check if the current move was a game-terminating move
+            this.isTerminated = true;
+        }
+
         this.currentPlayer = this.currentPlayer ^ 1; // 1 ^ 1 = 0, 0 ^ 1 = 1
 
         return gameStatus;
