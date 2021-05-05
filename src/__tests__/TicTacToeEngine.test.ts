@@ -326,6 +326,29 @@ describe("Tic Tac Toe Engine Make Next Move test suite", () => {
 
 
 describe("Tic Tac Toe Engine Get Best Move test suite", () => {
+    test("Get best move Terminated Game Exception", () => {
+        const ticTacToeEngine = new TicTacToeEngine(Player.PLAYER_ONE);
+        /*
+        1 | 2 | 2
+        2 | 1 | 1
+        1 | 1 | 2
+        */
+        expect(ticTacToeEngine.makeNextMove(0, 0)).toEqual(GameStatus.ONGOING); // player one move
+        expect(ticTacToeEngine.makeNextMove(1, 0)).toEqual(GameStatus.ONGOING); // player two move
+        expect(ticTacToeEngine.makeNextMove(1, 1)).toEqual(GameStatus.ONGOING); // player one move
+        expect(ticTacToeEngine.makeNextMove(2, 0)).toEqual(GameStatus.ONGOING); // player two move
+        expect(ticTacToeEngine.makeNextMove(2, 1)).toEqual(GameStatus.ONGOING); // player one move
+        expect(ticTacToeEngine.makeNextMove(0, 1)).toEqual(GameStatus.ONGOING); // player two move
+        expect(ticTacToeEngine.makeNextMove(1, 2)).toEqual(GameStatus.ONGOING); // player one move
+        expect(ticTacToeEngine.makeNextMove(2, 2)).toEqual(GameStatus.ONGOING); // player two move
+        expect(ticTacToeEngine.makeNextMove(0, 2)).toEqual(GameStatus.DRAW); // player one move
+
+        expect(() => {
+            ticTacToeEngine.getBestMove()
+        }).toThrow(new TerminatedGameException('Unable to get next best move - Game has already terminated'));
+    });
+
+
     test("Get best move for Player Two simple test - 3 options", () => {
         const ticTacToeEngine = new TicTacToeEngine(Player.PLAYER_TWO);
         /*
