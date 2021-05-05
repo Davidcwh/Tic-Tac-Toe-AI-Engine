@@ -132,14 +132,14 @@ export default class TicTacToeEngine {
         }
 
         // Game did not terminate, continue with player two's next move
-        let best = TerminalValue.MIN;
+        let best = TerminalValue.MAX;
         TicTacToeUtil.getAvailableCells(board).forEach(cell => {
             const clonedBoard = TicTacToeUtil.cloneBoard(board);
             let playerTwoMoveValue = this.makePlayerTwoMove(clonedBoard, cell.x, cell.y, depth + 1);
-            best = Math.max(best, playerTwoMoveValue);
+            best = Math.min(best, playerTwoMoveValue);
         });
 
-        // return the max of player two's moves
+        // return the min of player two's moves
         return best;
     }
 
@@ -156,14 +156,14 @@ export default class TicTacToeEngine {
         }
 
         // Game did not terminate, continue with player one's next move
-        let best = TerminalValue.MAX;
+        let best = TerminalValue.MIN;
         TicTacToeUtil.getAvailableCells(board).forEach(cell => {
             const clonedBoard = TicTacToeUtil.cloneBoard(board);
             let playerOneMoveValue = this.makePlayerOneMove(clonedBoard, cell.x, cell.y, depth + 1);
-            best = Math.min(best, playerOneMoveValue);
+            best = Math.max(best, playerOneMoveValue);
         });
 
-        // return the min of player one's moves
+        // return the max of player one's moves
         return best;
     }
 }
