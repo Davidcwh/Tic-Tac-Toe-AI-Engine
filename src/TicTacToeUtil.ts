@@ -18,17 +18,13 @@ export default class TicTacToeUtil {
         return availableCells;
     }
 
-    static isBoardFull(board: Array<Array<Cell>>) {
+    static cloneBoard(board: Array<Array<Cell>>) : Array<Array<Cell>> {
+        const clone = new Array<Array<Cell>>(this.boardLength);
         for(let y = 0; y < this.boardLength; y++) {
-            for(let x = 0; x < this.boardLength; x++) {
-                const currentCell = board[y][x];
-                if(currentCell == Cell.EMPTY) {
-                    return false;
-                }
-            }
+            const row = board[y].map((cell) => cell); // identity function to duplicate inner array
+            clone[y] = row;
         }
-
-        return true;
+        return clone;
     }
 
     static getGameStatusAfterMove(board: Array<Array<Cell>>, x: number, y: number, cell: Cell) {
@@ -59,7 +55,7 @@ export default class TicTacToeUtil {
         }
     }
 
-    static isWinningRow(board: Array<Array<Cell>>, y: number, cell: Cell) {
+    private static isWinningRow(board: Array<Array<Cell>>, y: number, cell: Cell) {
         // check if the y-th row contains all of type cell
         for(let x = 0; x < this.boardLength; x++) {
             const currentCell = board[y][x];
@@ -71,7 +67,7 @@ export default class TicTacToeUtil {
         return true;
     }
 
-    static isWinningCol(board: Array<Array<Cell>>, x: number, cell: Cell) {
+    private static isWinningCol(board: Array<Array<Cell>>, x: number, cell: Cell) {
         // check if the x-th column contains all of type cell
         for(let y = 0; y < this.boardLength; y++) {
             const currentCell = board[y][x];
@@ -83,7 +79,7 @@ export default class TicTacToeUtil {
         return true;
     }
 
-    static isWinningLeftDiagonal(board: Array<Array<Cell>>, x: number, y: number, cell: Cell) {
+    private static isWinningLeftDiagonal(board: Array<Array<Cell>>, x: number, y: number, cell: Cell) {
         // check if (x, y) is in the left diagonal
         if((x == 1 && y == 1) || (x == 0 && y == 2) || (x == 2 && y == 0)) {
             // check if the left diagonal is of type cell
@@ -92,7 +88,7 @@ export default class TicTacToeUtil {
         return false;
     }
 
-    static isWinningRightDiagonal(board: Array<Array<Cell>>, x: number, y: number, cell: Cell) {
+    private static isWinningRightDiagonal(board: Array<Array<Cell>>, x: number, y: number, cell: Cell) {
         // check if (x, y) is in the right diagonal
         if((x == 1 && y == 1) || (x == 0 && y == 0) || (x == 2 && y == 2)) {
             // check if the right diagonal is of type cell
@@ -101,12 +97,16 @@ export default class TicTacToeUtil {
         return false;
     }
 
-    static cloneBoard(board: Array<Array<Cell>>) : Array<Array<Cell>> {
-        const clone = new Array<Array<Cell>>(this.boardLength);
+    private static isBoardFull(board: Array<Array<Cell>>) {
         for(let y = 0; y < this.boardLength; y++) {
-            const row = board[y].map((cell) => cell); // identity function to duplicate inner array
-            clone[y] = row;
+            for(let x = 0; x < this.boardLength; x++) {
+                const currentCell = board[y][x];
+                if(currentCell == Cell.EMPTY) {
+                    return false;
+                }
+            }
         }
-        return clone;
+
+        return true;
     }
 }
