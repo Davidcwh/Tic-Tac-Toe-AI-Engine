@@ -10,7 +10,7 @@ npm i tic-tac-toe-minimax-engine
 
 ## API
 ### Import and Initialization
-The following are the libaries needed to be imported. `TicTacToeEngine` is the engine class itself, `Player` and `GameStatus` are enum classes needed for input and output with the engine.
+The following are the libaries that need to be imported. `TicTacToeEngine` is the engine class itself, `Player` and `GameStatus` are enum classes needed for input and output with the engine.
 The game engine is initialized with the player that is starting first, either `Player.PLAYER_ONE` or `Player.PLAYER_TWO`.
 ```javascript
 import TicTacToeEngine, {Player, GameStatus} from './TicTacToeEngine';
