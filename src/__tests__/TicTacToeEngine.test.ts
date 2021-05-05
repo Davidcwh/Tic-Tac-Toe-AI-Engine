@@ -3,6 +3,10 @@ import {CellTakenException, TerminatedGameException} from "../EngineException";
 import {describe, expect, test} from "@jest/globals";
 
 describe("Tic Tac Toe Engine Make Next Move test suite", () => {
+    test("Empty Constructor", () => {
+        const ticTacToeEngine = new TicTacToeEngine();
+    })
+
     test("Make Next Move Terminated Game Exception on Draw", () => {
         const ticTacToeEngine = new TicTacToeEngine(Player.PLAYER_ONE);
         /*
