@@ -76,7 +76,11 @@ export default class TicTacToeEngine {
 
         return gameStatus;
     }
-
+    /**
+     * Executes minimax algorithm on the current board state to obtain the next best move.
+     * Note that this function does not execute the move.
+     * @returns Object with x and y coordinates of the next best move. x and y refer to the row and column index respectively
+     */
     getBestMove() : {x: number, y: number}{
         if(this.isTerminated) {
             throw new TerminatedGameException(`Unable to get next best move - Game has already terminated`);
