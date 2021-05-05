@@ -1,5 +1,5 @@
 {
-  "name": "tic-tac-toe-ai",
+  "name": "tic-tac-toe-minimax-engine",
   "version": "1.0.0",
   "description": "A Tic Tac Toe Engine that handles game logic and uses Minimax AI Algorithm to find the best move",
   "main": "index.js",
