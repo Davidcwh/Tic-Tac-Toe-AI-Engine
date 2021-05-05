@@ -1,4 +1,6 @@
 # [Tic-Tac-Toe-Minimax-Engine](https://www.npmjs.com/package/tic-tac-toe-minimax-engine)
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/davidcwh/Tic-Tac-Toe-AI-Engine/main.svg?style=flat-square)](https://codecov.io/gh/davidcwh/Tic-Tac-Toe-AI-Engine/)
+
 A light-weight NPM package that provides a Tic Tac Toe engine with the unbeatable [minimax AI algorithm](https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/). The engine handles all game business logic, simply plug into any Javascript program to use.
 
 In layman terms, the minimax algorithm looks in the future and chooses the best possible move.
