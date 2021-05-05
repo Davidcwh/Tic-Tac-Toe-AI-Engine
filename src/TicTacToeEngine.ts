@@ -30,7 +30,7 @@ enum TerminalValue {
 
 export default class TicTacToeEngine {
     private currentPlayer: Player;
-    private boardLength = 3;
+    private boardLength = TicTacToeUtil.boardLength;
     private board = new Array<Array<Cell>>(this.boardLength);
     private isTerminated: boolean;
 
