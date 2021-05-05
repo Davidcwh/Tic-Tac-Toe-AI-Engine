@@ -1,6 +1,6 @@
 {
   "name": "tic-tac-toe-minimax-engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Tic Tac Toe Engine that handles game logic and uses Minimax AI Algorithm to find the best move",
   "main": "index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,17 @@
     "type": "git",
     "url": "git+https://github.com/Davidcwh/Tic-Tac-Toe-AI-Engine.git"
   },
-  "keywords": ["tic tac toe", "tic-tac-toe", "tictactoe","minimax", "ai", "javascript", "engine", "unbeatable", "game"],
+  "keywords": [
+    "tic tac toe",
+    "tic-tac-toe",
+    "tictactoe",
+    "minimax",
+    "ai",
+    "javascript",
+    "engine",
+    "unbeatable",
+    "game"
+  ],
   "author": "davidcwh",
   "license": "ISC",
   "bugs": {
