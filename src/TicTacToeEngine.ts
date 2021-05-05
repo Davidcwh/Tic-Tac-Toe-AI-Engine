@@ -1,4 +1,4 @@
-import {CellTakenException, TerminatedGameException, InvalidPlayerException} from './EngineException';
+import {CellTakenException, TerminatedGameException} from './EngineException';
 import TicTacToeUtil from './TicTacToeUtil';
 
 export enum Player {
@@ -35,10 +35,6 @@ export default class TicTacToeEngine {
     private isTerminated: boolean;
 
     constructor(firstPlayer: Player = Player.PLAYER_ONE) {
-        if(firstPlayer != Player.PLAYER_ONE && firstPlayer != Player.PLAYER_TWO) {
-            throw new InvalidPlayerException(`Expected first player to be Player.PLAYER_ONE or Player.PLAYER_TWO, got ${firstPlayer}`)
-        }
-
         this.currentPlayer = firstPlayer;
         this.isTerminated = false;
 
@@ -77,7 +73,7 @@ export default class TicTacToeEngine {
             this.isTerminated = true;
         }
 
-        this.currentPlayer = this.currentPlayer ^ 1; // 1 ^ 1 = 0, 0 ^ 1 = 1
+        this.currentPlayer = this.currentPlayer == Player.PLAYER_ONE ? Player.PLAYER_TWO : Player.PLAYER_ONE;
 
         return gameStatus;
     }

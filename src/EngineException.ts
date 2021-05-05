@@ -9,9 +9,3 @@ export class TerminatedGameException extends Error {
         super(message);
     }
 }
-
-export class InvalidPlayerException extends Error {
-    constructor(message: string) {
-        super(message);
-    }
-}
