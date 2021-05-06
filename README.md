@@ -103,6 +103,23 @@ game.makeNextMove(0, 0);
 const {x, y} = game.getBestMove();
 game.makeNextMove(x, y); // Make best move for player 2
 ```
+## Exceptions
+### Making An Illegal Move
+If `makeNextMove(x, y)` was called where the `(x, y)` cell on the board is already taken, then the engine will throw `CellTakenException`. 
+The current player will have to call `makeNextMove(x, y)` again until a valid move is made.
+```javascript
+/* Example current board state
+    2 |   |  
+      | 1 |  
+      |   |  
+*/
+
+// Player 2 attempts to take center
+game.makeNextMove(1, 1); // Exception will be thrown here
+```
+### Interacting With A Terminated Game
+After a game has terminated, any function calls of `makeNextMove(x, y)` and `getBestMove()` will throw `TerminatedGameException`.
+Initialize a new `TicTacToeEngine` object to create a new game.
 
 ## Credits
 This package was inspired by and completed with reference to the following sources:
