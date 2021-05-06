@@ -2,8 +2,8 @@
   "name": "tic-tac-toe-minimax-engine",
   "version": "1.0.6",
   "description": "A Tic Tac Toe Engine that handles game logic and uses Minimax AI Algorithm to find the best move",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/TicTacToeEngine.js",
+  "types": "lib/TicTacToeEngine.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
