@@ -5,6 +5,8 @@ A [light-weight NPM package](https://www.npmjs.com/package/tic-tac-toe-minimax-e
 
 In layman terms, the minimax algorithm looks into the future and chooses the best possible move.
 
+[Example Tic-Tac-Toe web app that uses this package](https://github.com/Davidcwh/Unbeatable-Tic-Tac-Toe)
+
 ## Install
 `
 npm i tic-tac-toe-minimax-engine
